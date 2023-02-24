@@ -6,9 +6,14 @@ import { data } from "../data/data";
 
 export function getPlanetsWithNoMoons(data) {
   // Your code goes here...
+  const result = [];
+  for (const planet of data.planets) {
+    if (!planet.hasOwnProperty("moons")) {
+      result.push(planet.name);
+    }
+  }
+  return result;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-15"
