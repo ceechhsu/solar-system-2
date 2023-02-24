@@ -6,9 +6,12 @@ import { data } from "../data/data";
 
 export function getAllAverageTemperatures(data) {
   // Your code goes here...
+  const averageTemps = [];
+  for (const planet of data.planets) {
+    averageTemps.push(planet.avgTemp);
+  }
+  return averageTemps;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-3"
