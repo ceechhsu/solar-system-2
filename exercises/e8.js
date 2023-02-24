@@ -6,9 +6,19 @@ import { data } from "../data/data";
 
 export function findPlanetNameByMoon(data, moonName) {
   // Your code goes here...
+  let result = "";
+  outerloop: for (const planet of data.planets) {
+    if (planet.hasOwnProperty("moons")) {
+      for (const moon of planet.moons) {
+        if (moon == moonName) {
+          result = planet.name;
+          break outerloop;
+        }
+      }
+    }
+  }
+  return result;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-8"
