@@ -7,6 +7,20 @@ import { data } from "../data/data";
 export function getGreatestDiscoveryYear(data) {
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  let yearDiscoveries = {};
+  for (const asteroid of data.asteroids) {
+    !yearDiscoveries.hasOwnProperty(asteroid.discoveryYear)
+      ? (yearDiscoveries[asteroid.discoveryYear] = 1)
+      : yearDiscoveries[asteroid.discoveryYear]++;
+  }
+  let greatestYear = Object.keys(yearDiscoveries)[0];
+  for (const year in yearDiscoveries) {
+    if (yearDiscoveries[year] > yearDiscoveries[greatestYear]) {
+      greatestYear = year;
+    }
+  }
+  greatestYear = parseInt(greatestYear);
+  return greatestYear;
 }
 
 // === TEST YOURSELF ===
